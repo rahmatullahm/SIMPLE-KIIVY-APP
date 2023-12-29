@@ -1,0 +1,84 @@
+<MainBoard>:
+    ball: _ball
+    r_side: _r_side
+    l_side: _l_side
+    tops: _top
+    bottom: _bottom
+    r_paddle: _r_paddle
+    l_paddle: _l_paddle
+    canvas:
+        Color: 
+            rgba: 1,1,0,1
+        Rectangle: 
+            size: 10, self.height
+            pos: self.center_x - 5, 0
+    Label:
+        id: _r_label
+        text: str(root.score_r)
+        font_size: 72
+        top: root.height - 20
+        x: root.width*25/100 -self.width/2
+    Label:
+        id: _l_label
+        text: str(root.score_l)
+        font_size: 72
+        top: root.height - 20
+        x: root.width*75/100 -self.width/2
+    Top_Bottom:
+        id: _top
+        size: self.parent.width, 10
+        top: self.parent.height
+    Top_Bottom:
+        id: _bottom
+        size: self.parent.width, 10
+
+    Side:
+        id: _r_side
+        size: 10, self.parent.height
+        x: 0
+    Side:
+        id: _l_side
+        size: 10, self.parent.height
+        right: self.parent.width
+    Ball:
+        id: _ball
+        center: self.parent.center
+    Paddle:
+        id: _r_paddle
+        center_y: self.parent.height/2
+        x: _r_side.width
+    Paddle:
+        id: _l_paddle
+        center_y: self.parent.height/2
+        right: self.parent.width - _l_side.width
+<Side>:
+    canvas:
+        Color: 
+            rgba: 0,1,1,1
+        Rectangle: 
+            size: self.size
+            pos: self.pos
+<Top_Bottom>:
+    canvas:
+        Color: 
+            rgba: 1,0,1,1
+        Rectangle: 
+            size: self.size
+            pos: self.pos
+<Ball>:
+    size: 50,50
+    canvas:
+        Color:
+            rgba: 0,1,0,1
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+<Paddle>:
+    size: 20, 80
+    canvas:
+        Color: 
+            rgba: 0,0,1,1
+        Rectangle: 
+            size: self.size
+            pos: self.pos
